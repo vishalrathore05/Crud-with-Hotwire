@@ -1,0 +1,20 @@
+<!-- app/views/posts/new.html.erb -->
+
+<h1>Create a New Post</h1>
+
+<%= form_with(model: @post, url: posts_path, method: :post) do |form| %>
+  <div>
+    <%= form.label :title, "Post Title" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.submit "Create Post" %>
+  </div>
+<% end %>
+
+<%= turbo_frame_tag dom_id(post) do %>  <p>
+    <strong>Title:</strong>
+    <%= post.title %>
+  </p>
+<% end %>
